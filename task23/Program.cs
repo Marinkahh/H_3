@@ -7,16 +7,8 @@
 Console.Clear();
 Console.Write("Введите число: ");
 int number = int.Parse(Console.ReadLine());
-int count = 1;
-while (count<= number)
+
+for (int i = 1; i <= number; i++)
 {
-    if (count < number)
-    {
-        Console.Write($"{count*count*count}, ");
-    }
-    else
-    {
-        Console.Write($"{count*count*count}. ");
-    }
-    count++;
+    Console.WriteLine(i*i*i);
 }
