@@ -4,23 +4,29 @@
 // 14212 -> нет
 // 12821 -> да
 // 23432 -> да
-
-Console.WriteLine("Введите число: ");
-string number = Console.ReadLine();
-int len = number.Length;
-
-if (len == 5)
+Console.Clear();
+Console.WriteLine("Введите пятизнаное число: ");
+int number = int.Parse(Console.ReadLine());
+int[] array = new int[5];
+string result;
+if (number < 10000 || number > 99999)
 {
-    if (number[0] == number[4] && number[1] == number[3])
-    {
-        Console.WriteLine($"{number} - Палиндром");
-    }
-    else
-    {
-        Console.WriteLine($"{number} - НЕ палиндром");
-    }
+    result = "Ошибка! Введено не пятизначное число!";
 }
 else
 {
-    Console.WriteLine($"ОШИБКА: {number} - не является пятизначным");
+    for(int i = 0; i < 5; i++)
+    {
+        array[i] = number%10;
+        number = number / 10;
+    }
+    if((array[0] == array[4]) && (array[1] == array[3]))
+    {
+        result = "Число является палиндромом";
+    }
+    else
+    {
+        result = "Число не является палиндромом";
+    }
 }
+Console.WriteLine(result);
